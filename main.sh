@@ -1,15 +1,18 @@
 #!/bin/bash -e
 
+# Variants to get public ip "curl http://ipgrab.io" or "curl ifconfig.me" 
+PublicIP="$(curl http://ipgrab.io)"
+
 # Required environment variables
-# export API_USER=usernmae
-# export API_KEY=xxx
-# export USERNAME=username
-# export CLIENT_IP=127.0.0.1
-# export SLD=haomingyin
-# export TLD=com
-# export APPLY_DOMAIN=*.haomingyin.com
-# export ACME_MODE=prod
-# export EMAIL=email@gmail.com
+export API_USER=namecheap_user
+export API_KEY=namecheap_api_key
+export USERNAME=namecheap_user
+export CLIENT_IP=${PublicIP}
+export SLD=mydomain
+export TLD=com
+export DOMAINS=*.mydomain.com
+export ACME_MODE=prod
+export EMAIL=user@gmail.com
 
 # if CLIENT_IP is not set, then local IP will be used
 . ./utility.sh
@@ -32,6 +35,7 @@ get_acme_server
 
 # ---------- certbot certonly obtaining a new wildcard cert ------------
 certbot certonly \
+-v \
 --manual \
 --logs-dir /usr/local/var/log/letsencrypt \
 --work-dir /usr/local/var/letsencrypt \
@@ -39,10 +43,11 @@ certbot certonly \
 --preferred-challenges=dns \
 --manual-auth-hook ./authenticator.sh \
 --manual-cleanup-hook ./cleanup.sh \
--d $APPLY_DOMAIN \
--m $EMAIL \
+-d $DOMAINS \
+--email $EMAIL \
+--no-eff-email \
 --server $ACME_SERVER \
--agree-tos \
+--agree-tos \
 --manual-public-ip-logging-ok \
 --force-renewal
 # ----------------------------------------------------------------------
