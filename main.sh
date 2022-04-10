@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
-# Variants to get public ip "curl http://ipgrab.io" or "curl ifconfig.me" 
-PublicIP="$(curl http://ipgrab.io)"
+# Variants to get public ip "curl http://ipgrab.io" or "curl ifconfig.me" or "curl checkip.amazonaws.com"
+PublicIP="$(curl checkip.amazonaws.com)"
 
 # Required environment variables
 export API_USER=namecheap_user
