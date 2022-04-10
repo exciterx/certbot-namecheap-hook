@@ -4,7 +4,7 @@ If [Namecheap](https://www.namecheap.com/) is your DNS registrar, the scripts ca
 
 ## Introduction
 
-Every certificate applied from Certbot expires in three months. It's frustrating that you have to renew certs every three months. Though Certbot supports auto renewing them by setting up a [Cron](https://en.wikipedia.org/wiki/Cron) task. However, it doesn't support auto renewing wildcard certificates due to the limitation of[dns-01](https://tools.ietf.org/html/draft-ietf-acme-acme-03#section-7.4) challenge. This repository uses Namecheap API updating your DNS record to fight back the Certbot challenge.
+Every certificate applied from Certbot expires in three months. It's frustrating that you have to renew certs every three months. Though Certbot supports auto renewing them by setting up a [Cron](https://en.wikipedia.org/wiki/Cron) task. However, it doesn't support auto renewing wildcard certificates due to the limitation of [dns-01](https://tools.ietf.org/html/draft-ietf-acme-acme-03#section-7.4) challenge. This repository uses Namecheap API updating your DNS record to fight back the Certbot challenge.
 
 ## Get Started
 
