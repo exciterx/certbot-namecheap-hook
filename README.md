@@ -11,7 +11,7 @@ Every certificate applied from Certbot expires in three months. It's frustrating
 ### Pre-requirements
 
 - Ensure you have your Namecheap account API key at hand. Refer to [get API key](https://www.namecheap.com/support/api/intro.aspx).
-
+- Remember to add your public Ip to Namecheap account API whitelist.
 - Python 3 is required to get the script working
 
 ### Run Scripts
