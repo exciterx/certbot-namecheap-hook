@@ -125,7 +125,7 @@ def get_set_hosts():
 
 def set_challenge_record():
     hosts = get_set_hosts()
-    hosts.remove_record("_acme-challenge", "TXT")
+    # hosts.remove_record("_acme-challenge", "TXT")
     hosts.add_record(
         Record({
             "Name": "_acme-challenge",
