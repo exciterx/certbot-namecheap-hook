@@ -1,5 +1,11 @@
 #!/bin/bash -e
 
+#  It's important to be in the root of the script for the associated scripts to work correctly, thanks to kn327 for info
+SUB_DIR="$(dirname $0)"
+if [[ "$PWD" != "$SUB_DIR" ]]; then
+  cd "$SUB_DIR"
+fi
+
 # Variants to get public ip "curl http://ipgrab.io" or "curl ifconfig.me" or "curl checkip.amazonaws.com"
 PublicIP="$(curl checkip.amazonaws.com)"
 
